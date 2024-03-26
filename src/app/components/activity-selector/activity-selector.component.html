@@ -1,0 +1,22 @@
+<div>
+    <mat-form-field>
+        <mat-label>Select activity type:</mat-label>
+        <mat-select [(ngModel)]="selectedType" name="activityType">
+        @for (activityType of activityTypes; track activityType) {
+            <mat-option [value]="activityType.value">{{activityType.viewValue}}</mat-option>
+        }
+        </mat-select>
+    </mat-form-field>
+    <p> Selected activity type: {{selectedType}} </p>
+  
+    <div *ngIf="selectedType === 'ordering'">
+    app ordering list
+    <!-- <app-ordering-list></app-ordering-list> -->
+    </div>
+
+    <div *ngIf="selectedType === 'matching'">
+        app match list
+    <!-- <app-matching-exercise></app-matching-exercise> -->
+    </div>
+
+</div>
