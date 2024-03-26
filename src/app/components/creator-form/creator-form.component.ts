@@ -33,6 +33,10 @@ export class CreatorFormComponent implements OnInit{
     });
 
     this.optionsArray = this.quizForm.get('options') as FormArray;
+
+    this.quizForm.valueChanges.subscribe(data => {
+      this.sharedService.setQuizData(data);
+    });
   }
 
   addOption() {

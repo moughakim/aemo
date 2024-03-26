@@ -14,7 +14,6 @@ export class ClassifyExecutorComponent implements OnInit{
   ngOnInit() {
     this.sharedService.quizData$.subscribe(data => {
       this.quizData = data;
-      // Do whatever you need with the received quiz data
     });
   }
 }

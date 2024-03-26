@@ -1,1 +1,19 @@
-<p>{{quizData|json}}</p>
+<mat-card>
+    <mat-card-content>
+        <div class="quiz-container" *ngIf="quizData">
+            <h2>{{ quizData.topic }}</h2>
+            <p>Subject: {{ quizData.subject }}</p>
+            <p>Course: {{ quizData.course }}</p>
+            <p>Question: {{ quizData.questionDescription }}</p>
+            <p class="question-type">Question Type: {{ quizData.questionType }}</p>
+          
+            <div>
+                <!-- *ngIf="quizData.questionType === 'calssify texts'" -->
+              <h3>Options:</h3>
+              <mat-button-toggle-group  class="option-list" name="options" aria-label="options" multiple>
+                <mat-button-toggle *ngFor="let option of quizData.options" value="option">{{option}}</mat-button-toggle>
+              </mat-button-toggle-group>
+            </div>
+          </div>        
+    </mat-card-content>
+  </mat-card>
