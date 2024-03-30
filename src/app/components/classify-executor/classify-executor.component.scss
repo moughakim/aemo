@@ -1,14 +1,38 @@
 .quiz-container {
-    max-width: 600px;
+    width: 800px;
+    height: 500px;
     margin: 0 auto;
     padding: 20px;
-    background-color: #f5f5f5;
+    border: 1px solid #ccc;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #f9f9f9;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .quiz-container h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .quiz-container p {
+    margin-bottom: 8px;
+  }
+  
+  .quiz-container .question-type {
+    font-weight: bold;
+  }
+  
+  .quiz-container .options {
+    margin-top: 20px;
   }
   
   .option-list {
-    list-style: none;
-    padding: 0;
+    display: flex;
+    // flex-wrap: wrap;
+    gap: 50px; /* Adjust the gap between options */
+  }
+  
+  .option-list mat-button-toggle {
+    white-space: nowrap; /* Prevent option text from wrapping */
   }
   
