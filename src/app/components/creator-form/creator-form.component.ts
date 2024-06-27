@@ -29,7 +29,7 @@ export class CreatorFormComponent implements OnInit{
       course: ['', Validators.required],
       questionDescription: ['', Validators.required],
       questionType: ['', Validators.required],
-      options: this.fb.array(['text 1'], Validators.required)
+      options: this.fb.array([{isCorrectAnswer:true,optionValue:'text option'}], Validators.required)
     });
 
     this.optionsArray = this.quizForm.get('options') as FormArray;
@@ -41,26 +41,12 @@ export class CreatorFormComponent implements OnInit{
 
   addOption() {
     const options = this.quizForm.get('options') as FormArray;
-    options.push(this.fb.control(''));
+    options.push(this.fb.control({isCorrectAnswer:true,optionValue:'text option'}));
   }
 
   removeOption(index: number) {
     const options = this.quizForm.get('options') as FormArray;
     options.removeAt(index);
-  }
-
-  submitQuiz() {
-    if (this.quizForm.valid) {
-      // Implement submission logic
-      console.log(this.quizForm.value);
-      this.executeQuizForm(this.quizForm.value);
-    } else {
-      console.error('Form is invalid');
-    }
-  }
-
-  executeQuizForm(quizData: any) {
-    this.sharedService.setQuizData(quizData);
   }
 
 }
